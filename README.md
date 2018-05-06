@@ -74,28 +74,27 @@ VM2 должна иметь 2 сетевых интерфейса:
     3. В репозитории могут находиться любые дополнительные файлы и папки на ваше усмотрение (например можно вынести функции в отдельный файл)
     4. В конечном результате после запуска скрипта необходимо обеспечить приведенную ниже иерархию файлов (допускается как генерация файлов скриптом, так и редактирование уже существующих в репозитории файлов; допускается наличие любых дополнительных файлов и директорий):
 
-
-**WORKDIR**				            # script working directory
-├── config				        # parameters file
-├── **config-drives**		      # directory for config drives
-│   ├── **vm1-config**		    # source files for vm1 cfg drive
-│   │   ├── meta-data	    # meta-data file
-│   │   └── user-data	    # user-data script
-│   └── **vm2-config**		    # source files for vm2 cfg drive
-│       ├── meta-data	    # meta-data file
-│       └── user-data	    # user-data script
-├── **docker**				        # directory with docker files
-│   ├── **etc**			          # config directory
-│   │   └── nginx.conf	  # NGINX configuration file
-│   └── **certs**			        # directory with certificates
-│       ├── root.crt		  # root CA certificate
-│       ├── web.crt		    # NGINX certificate
-│       └── web.key		    # NGINX private key
-├── task10_12_3.sh		    # main script file
-└── **networks**			        # directory for libvirt network XMLs
-	├── external.xml	      # external net XML definition
-	├── internal.xml	      # internal net XML definition
-	└── management.xml	    # management net XML definition
+	WORKDIR				# script working directory
+	├── config			# parameters file
+	├── config-drives		# directory for config drives
+	│   ├── vm1-config		# source files for vm1 cfg drive
+	│   │   ├── meta-data	    	# meta-data file
+	│   │   └── user-data	    	# user-data script
+	│   └── vm2-config		# source files for vm2 cfg drive
+	│       ├── meta-data	    	# meta-data file
+	│       └── user-data	    	# user-data script
+	├── docker			# directory with docker files
+	│   ├── etc			# config directory
+	│   │   └── nginx.conf	  	# NGINX configuration file
+	│   └── certs			# directory with certificates
+	│       ├── root.crt		# root CA certificate
+	│       ├── web.crt		# NGINX certificate
+	│       └── web.key		# NGINX private key
+	├── task10_12_3.sh		# main script file
+	└── networks			# directory for libvirt network XMLs
+		├── external.xml	# external net XML definition
+		├── internal.xml	# internal net XML definition
+		└── management.xml	# management net XML definition
 
 Пример файла **config**:
 
