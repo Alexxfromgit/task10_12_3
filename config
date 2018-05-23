@@ -1,0 +1,66 @@
+# Libvirt networks
+# external network parameters
+EXTERNAL_NET_NAME=external
+EXTERNAL_NET_TYPE=dhcp
+EXTERNAL_NET=192.168.123
+EXTERNAL_NET_IP=${EXTERNAL_NET}.0
+EXTERNAL_NET_MASK=255.255.255.0
+EXTERNAL_NET_HOST_IP=${EXTERNAL_NET}.1
+VM1_EXTERNAL_IP=${EXTERNAL_NET}.101
+
+# internal network parameters
+INTERNAL_NET_NAME=internal
+INTERNAL_NET=192.168.124
+INTERNAL_NET_IP=${INTERNAL_NET}.0
+INTERNAL_NET_MASK=255.255.255.0
+
+# management network parameters
+MANAGEMENT_NET_NAME=management
+MANAGEMENT_NET=192.168.125
+MANAGEMENT_NET_IP=${MANAGEMENT_NET}.0
+MANAGEMENT_NET_MASK=255.255.255.0
+MANAGEMENT_HOST_IP=${MANAGEMENT_NET}.1
+
+# VMs global parameters
+SSH_PUB_KEY=/home/litv/.ssh/id_rsa.pub
+VM_TYPE=hvm
+VM_VIRT_TYPE=kvm
+VM_DNS=8.8.8.8
+VM_BASE_IMAGE=https://cloud-images.ubuntu.com/xenial/current/xenial-server-cloudimg-amd64-disk1.img
+
+# overlay
+VXLAN_NET=10.255.0
+VID=12345
+VXLAN_IF=vxlan0
+
+# VMs
+VM1_NAME=vm1
+VM1_NUM_CPU=1
+VM1_MB_RAM=512
+VM1_HDD=/var/lib/libvirt/images/vm1/vm1.qcow2
+VM1_CONFIG_ISO=/var/lib/libvirt/images/vm1/config-vm1.iso
+VM1_EXTERNAL_IF=ens3
+VM1_INTERNAL_IF=ens4
+VM1_MANAGEMENT_IF=ens5
+VM1_INTERNAL_IP=${INTERNAL_NET}.101
+VM1_MANAGEMENT_IP=${MANAGEMENT_NET}.101
+VM1_VXLAN_IP=${VXLAN_NET}.101
+
+VM2_NAME=vm2
+VM2_NUM_CPU=1
+VM2_MB_RAM=512
+VM2_HDD=/var/lib/libvirt/images/vm2/vm2.qcow2
+VM2_CONFIG_ISO=/var/lib/libvirt/images/vm2/config-vm2.iso
+VM2_INTERNAL_IF=ens3
+VM2_MANAGEMENT_IF=ens4
+VM2_INTERNAL_IP=${INTERNAL_NET}.102
+VM2_MANAGEMENT_IP=${MANAGEMENT_NET}.102
+VM2_VXLAN_IP=${VXLAN_NET}.102
+
+# Docker containers
+NGINX_IMAGE="nginx:1.13"
+APACHE_IMAGE="httpd:2.4"
+NGINX_PORT=17080
+APACHE_PORT=13254
+NGINX_LOG_DIR=/srv/log/nginx
+
